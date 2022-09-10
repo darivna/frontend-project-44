@@ -11,8 +11,8 @@ export function greeting() {
   return userName;
 }
 
-export function getRandomNumber() {
-  const randomNumber = Math.floor(Math.random() * 101);
+export function getRandomNumber(min, max) {
+  const randomNumber = Math.floor(Math.random() * (max - min)) + min;
   return randomNumber;
 }
 

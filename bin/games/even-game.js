@@ -2,15 +2,13 @@ import {
   greeting, showGamesRule, getRandomNumber, makeQuestion, getUsersAnswer,
 } from '../../src/index.js';
 
-// const isEven = (number) => number % 2 === 0; 
-
 export default function findEvenNumber() {
   const userName = greeting();
   showGamesRule('Answer "yes" if the number is even, otherwise answer "no".');
   let rightAnswerCount = 0;
 
   while (rightAnswerCount < 3) {
-    const randomNumber = getRandomNumber();
+    const randomNumber = getRandomNumber(0, 1000);
     makeQuestion(randomNumber);
     const positiveAnswer = 'yes';
     const negativeAnswer = 'no';
