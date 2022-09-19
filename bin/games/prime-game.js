@@ -12,9 +12,7 @@ function isPrime(someNumber) {
     }
   }
 
-  counter > 1 ? rightAnswer = 'no' : rightAnswer = 'yes';
-
-  return rightAnswer;
+  return (rightAnswer = counter > 1 ? 'no' : 'yes');
 }
 
 export default function checkIsPrime() {

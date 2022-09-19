@@ -2,9 +2,9 @@ import {
   greeting, showGamesRule, getRandomNumber, makeQuestion, getUsersAnswer,
 } from '../../src/index.js';
 
-const arrayLength = getRandomNumber(5, 10);
-const progressionStep = getRandomNumber(2, 10);
-const randomIndex = getRandomNumber(0, arrayLength);
+const [arrayLength, progressionStep, randomIndex] = [
+  getRandomNumber(5, 10), getRandomNumber(2, 10), getRandomNumber(0, arrayLength),
+];
 
 function getArrayOfNumbers(arrLength, step) {
   const arrayOfNumbers = [];
@@ -24,11 +24,11 @@ export default function getProgression() {
 
   while (rightAnswerCount < 3) {
     const arrayOfNumbers = getArrayOfNumbers(arrayLength, progressionStep);
-    const rightAnswer = arrayOfNumbers.splice(randomIndex, 1, '..');
+    const rightAnswer = Number(arrayOfNumbers.splice(randomIndex, 1, '..'));
     makeQuestion(arrayOfNumbers.join(' '));
-    const usersAnswer = getUsersAnswer();
+    const usersAnswer = Number(getUsersAnswer());
 
-    if (Number(usersAnswer) === Number(rightAnswer)) {
+    if (usersAnswer === rightAnswer) {
       console.log('Correct!');
       rightAnswerCount += 1;
     } else {

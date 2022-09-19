@@ -4,31 +4,33 @@ import {
 
 function getRandomOperator() {
   const operators = ['+', '-', '*'];
-  const randomNumber = getRandomNumber(0, 3);
-  let operator = operators[randomNumber];
+  const [plus, minus, mult] = operators;
+  const randomIndex = getRandomNumber(0, 3);
+  let operator = operators[randomIndex];
 
-  switch (randomNumber) {
-    case randomNumber === 0:
-      operator = operators[0];
+  switch (randomIndex) {
+    case randomIndex === 0:
+      operator = plus;
       break;
-    case randomNumber === 1:
-      operator = operators[1];
+    case randomIndex === 1:
+      operator = minus;
       break;
-    case randomNumber === 2:
-      operator = operators[2];
+    case randomIndex === 2:
+      operator = mult;
+      break;
   }
   return operator;
 }
 
-function calcExpressionResult(firstNum, mathAction, secondNum) {
+function calcExpressionResult(firstNum, mathOperation, secondNum) {
   let expressionResult;
-  if (mathAction === '+') {
+  if (mathOperation === '+') {
     expressionResult = firstNum + secondNum;
   }
-  if (mathAction === '-') {
+  if (mathOperation === '-') {
     expressionResult = firstNum - secondNum;
   }
-  if (mathAction === '*') {
+  if (mathOperation === '*') {
     expressionResult = firstNum * secondNum;
   }
   return expressionResult;
@@ -40,15 +42,15 @@ export default function getMathResult() {
   let rightAnswerCount = 0;
 
   while (rightAnswerCount < 3) {
-    const firstOperand = getRandomNumber(0, 10);
-    const secondOperand = getRandomNumber(0, 10);
-    const operator = getRandomOperator();
+    const [firstOperand, secondOperand, operator] = [
+      getRandomNumber(0, 50), getRandomNumber(0, 50), getRandomOperator(),
+    ];
     const expression = `${firstOperand} ${operator} ${secondOperand}`;
     makeQuestion(expression);
-    const expressionResult = calcExpressionResult(firstOperand, operator, secondOperand);
-    const usersAnswer = getUsersAnswer();
+    const expressionResult = Number(calcExpressionResult(firstOperand, operator, secondOperand));
+    const usersAnswer = Number(getUsersAnswer());
 
-    if (Number(usersAnswer) === Number(expressionResult)) {
+    if (usersAnswer === expressionResult) {
       console.log('Correct!');
       rightAnswerCount += 1;
     } else {

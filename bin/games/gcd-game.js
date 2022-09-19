@@ -4,6 +4,7 @@ import {
 
 function getGreatestCommonDiv(firsValue, secondValue) {
   const divisorsArray = [];
+  let greatestCommonDiv;
 
   for (let i = 1, j = 1; i <= firsValue, j <= secondValue; i += 1, j += 1) {
     if (firsValue % i === 0 && secondValue % j === 0) {
@@ -11,9 +12,7 @@ function getGreatestCommonDiv(firsValue, secondValue) {
     }
   }
   const commonDivArray = Array.from(new Set(divisorsArray)).sort();
-  const greatestCommonDiv = commonDivArray[commonDivArray.length - 1];
-
-  return greatestCommonDiv;
+  return (greatestCommonDiv = commonDivArray[commonDivArray.length - 1]);
 }
 
 export default function getGreatestDivisor() {
@@ -22,13 +21,14 @@ export default function getGreatestDivisor() {
   let rightAnswerCount = 0;
 
   while (rightAnswerCount < 3) {
-    const firstNumber = getRandomNumber(1, 10);
-    const secondNumber = getRandomNumber(1, 10);
+    const [firstNumber, secondNumber] = [
+      getRandomNumber(1, 10), getRandomNumber(1, 10),
+    ];
     const greatestCommonDiv = getGreatestCommonDiv(firstNumber, secondNumber);
     makeQuestion(`${firstNumber} ${secondNumber}`);
-    const usersAnswer = getUsersAnswer();
+    const usersAnswer = Number(getUsersAnswer());
 
-    if (Number(usersAnswer) === greatestCommonDiv) {
+    if (usersAnswer === greatestCommonDiv) {
       console.log('Correct!');
       rightAnswerCount += 1;
     } else {
