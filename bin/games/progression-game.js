@@ -2,15 +2,11 @@ import {
   greeting, showGamesRule, getRandomNumber, makeQuestion, getUsersAnswer,
 } from '../../src/index.js';
 
-const [arrayLength, progressionStep, randomIndex] = [
-  getRandomNumber(5, 10), getRandomNumber(2, 10), getRandomNumber(0, arrayLength),
-];
-
 function getArrayOfNumbers(arrLength, step) {
   const arrayOfNumbers = [];
   let arraysElement = getRandomNumber(0, 50);
 
-  for (let i = 1; i < arrLength; i += 1) {
+  for (let i = 1; i <= arrLength; i += 1) {
     arraysElement += step;
     arrayOfNumbers.push(arraysElement);
   }
@@ -23,6 +19,10 @@ export default function getProgression() {
   let rightAnswerCount = 0;
 
   while (rightAnswerCount < 3) {
+    const [arrayLength, progressionStep] = [
+      getRandomNumber(5, 10), getRandomNumber(2, 10),
+    ];
+    const randomIndex = getRandomNumber(0, arrayLength);
     const arrayOfNumbers = getArrayOfNumbers(arrayLength, progressionStep);
     const rightAnswer = Number(arrayOfNumbers.splice(randomIndex, 1, '..'));
     makeQuestion(arrayOfNumbers.join(' '));

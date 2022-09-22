@@ -9,13 +9,13 @@ function getRandomOperator() {
   let operator = operators[randomIndex];
 
   switch (randomIndex) {
-    case randomIndex === 0:
+    case 0:
       operator = plus;
       break;
-    case randomIndex === 1:
+    case 1:
       operator = minus;
       break;
-    case randomIndex === 2:
+    case 2:
       operator = mult;
       break;
   }
@@ -24,14 +24,16 @@ function getRandomOperator() {
 
 function calcExpressionResult(firstNum, mathOperation, secondNum) {
   let expressionResult;
-  if (mathOperation === '+') {
-    expressionResult = firstNum + secondNum;
-  }
-  if (mathOperation === '-') {
-    expressionResult = firstNum - secondNum;
-  }
-  if (mathOperation === '*') {
-    expressionResult = firstNum * secondNum;
+  switch (mathOperation) {
+    case '+':
+      expressionResult = firstNum + secondNum;
+      break;
+    case '-':
+      expressionResult = firstNum - secondNum;
+      break;
+    case '*':
+      expressionResult = firstNum * secondNum;
+      break;
   }
   return expressionResult;
 }
