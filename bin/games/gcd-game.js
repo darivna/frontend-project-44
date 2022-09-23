@@ -32,7 +32,7 @@ export default function getGreatestDivisor() {
       console.log('Correct!');
       rightAnswerCount += 1;
     } else {
-      console.log(`${usersAnswer} is wrong answer ;(. Correct answer was ${greatestCommonDiv}.\nLet's try again, ${userName}!`);
+      console.log(`${usersAnswer} is wrong answer ;(. Correct answer was ${greatestCommonDiv}.\nLet\'s try again, ${userName}!`);
       break;
     }
 

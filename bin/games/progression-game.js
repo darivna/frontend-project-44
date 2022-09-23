@@ -32,7 +32,7 @@ export default function getProgression() {
       console.log('Correct!');
       rightAnswerCount += 1;
     } else {
-      console.log(`${usersAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.\nLet's try again, ${userName}!`);
+      console.log(`${usersAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.\nLet\'s try again, ${userName}!`);
       break;
     }
 
