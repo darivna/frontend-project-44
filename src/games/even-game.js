@@ -5,12 +5,16 @@ export function getGamesRule() {
   console.log(rule);
 } 
 
+function getUserAnswer() {
+  const userAnswer = randomNumber % 2 === 0 ? 'yes' : 'no'
+  return userAnswer;
+}
+
 export function evenGame() {
   const randomNumber = getRandomNumber(0, 100);
 
   return [
     randomNumber,
-    randomNumber % 2 === 0 ? 'yes' : 'no'
+    getUserAnswer()
   ]
 }
-
