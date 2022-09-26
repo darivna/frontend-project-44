@@ -1,4 +1,6 @@
-import { getRandomNumber } from '../index.js';
+import getRandomNumber from '../utils.js';
+
+export const gameDescription = 'What number is missing in the progression?';
 
 function getArrayOfNumbers(arrLength, step) {
   const arrayOfNumbers = [];
@@ -8,24 +10,20 @@ function getArrayOfNumbers(arrLength, step) {
     arraysElement += step;
     arrayOfNumbers.push(arraysElement);
   }
+
   return arrayOfNumbers;
 }
 
-export function getGamesRule() {
-  const rule = 'What number is missing in the progression?';
-  console.log(rule);
-}
-
-export function progressionGame() {
+export function saveProgressionGameVariables() {
   const [arrayLength, progressionStep] = [
     getRandomNumber(5, 10), getRandomNumber(2, 10),
   ];
   const randomIndex = getRandomNumber(0, arrayLength);
   const arrayOfNumbers = getArrayOfNumbers(arrayLength, progressionStep);
-  const emptySlotArray = arrayOfNumbers.splice(randomIndex, 1, '..');
+  const arrayWithEmptySlot = arrayOfNumbers.splice(randomIndex, 1, '..');
 
   return [
     arrayOfNumbers.join(' '),
-    emptySlotArray,
+    arrayWithEmptySlot,
   ];
 }

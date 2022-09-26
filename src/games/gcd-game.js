@@ -1,8 +1,9 @@
-import { getRandomNumber } from '../index.js';
+import getRandomNumber from '../utils.js';
 
-function getGreatestCommonDiv(firstValue, secondValue) {
+export const gameDescription = 'Find the greatest common divisor of given numbers.';
+
+function calcGreatestCommonDiv(firstValue, secondValue) {
   const divisorsArray = [];
-  let greatestCommonDiv = null;
 
   for (let i = 1, j = 1; i <= firstValue && j <= secondValue; i += 1, j += 1) {
     if (firstValue % i === 0 && secondValue % j === 0) {
@@ -10,21 +11,14 @@ function getGreatestCommonDiv(firstValue, secondValue) {
     }
   }
   const commonDivArray = Array.from(new Set(divisorsArray)).sort();
-  greatestCommonDiv = commonDivArray[commonDivArray.length - 1];
-
-  return greatestCommonDiv;
+  return commonDivArray[commonDivArray.length - 1];
 }
 
-export function getGamesRule() {
-  const rule = 'Find the greatest common divisor of given numbers.';
-  console.log(rule);
-}
-
-export function getGreatestDivisor() {
+export function saveGcdGameVariables() {
   const [firstNumber, secondNumber] = [
     getRandomNumber(1, 10), getRandomNumber(1, 10),
   ];
-  const greatestCommonDiv = getGreatestCommonDiv(firstNumber, secondNumber);
+  const greatestCommonDiv = calcGreatestCommonDiv(firstNumber, secondNumber);
 
   return [
     `${firstNumber} ${secondNumber}`,

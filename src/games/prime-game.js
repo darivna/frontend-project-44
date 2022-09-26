@@ -1,4 +1,6 @@
-import { getRandomNumber } from '../index.js';
+import getRandomNumber from '../utils.js';
+
+export const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(number) {
   let counter = 0;
@@ -12,12 +14,7 @@ function isPrime(number) {
   return counter > 1 ? 'no' : 'yes';
 }
 
-export function getGamesRule() {
-  const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  console.log(rule);
-}
-
-export function primeGame() {
+export function savePrimeGameVariables() {
   const randomNumber = getRandomNumber(1, 100);
 
   return [

@@ -1,50 +1,39 @@
 import readlineSync from 'readline-sync';
 
+const rightAnswersCountToWin = 3;
+
 export function showGamesRule(rule) {
   console.log(rule);
 }
 
-export function greeting() {
+export function readUsersAnswer() {
+  return readlineSync.question('Your answer: ');
+}
+
+export default function runEngine(gameDescription, generateGameData) {
+  let rightAnswerCount = 0;
+
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  return userName;
-}
 
-export function getRandomNumber(min, max) {
-  const randomNumber = Math.floor(Math.random() * (max - min)) + min;
-  return randomNumber;
-}
+  console.log(gameDescription);
 
-export function makeQuestion(expression) {
-  console.log(`Question: ${expression}`);
-}
+  while (rightAnswerCount < rightAnswersCountToWin) {
+    const [question, rightAnswer] = generateGameData();
+    console.log(`Question: ${question}`);
+    const usersAnswer = readUsersAnswer();
 
-export function getUsersAnswer() {
-  const usersAnswer = readlineSync.question('Your answer: ');
-  return usersAnswer;
-}
-
-export default function runEngine(gameRule, game) {
-  const username = greeting();
-  gameRule();
-  let rightAnswerCount = 0;
-
-  while (rightAnswerCount < 3) {
-    const [question, answer] = game();
-    makeQuestion(question);
-    const usersAnswer = getUsersAnswer();
-
-    if (usersAnswer.toString() === answer.toString()) {
-      console.log('Correct!');
-      rightAnswerCount += 1;
-    } else {
-      console.log(`${usersAnswer} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again, ${username}!`);
+    if (usersAnswer.toString() !== rightAnswer.toString()) {
+      console.log(`${usersAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.\nLet's try again, ${userName}!`);
       break;
     }
 
-    if (rightAnswerCount === 3) {
-      console.log(`Congratulations, ${username}!`);
+    console.log('Correct!');
+    rightAnswerCount += 1;
+
+    if (rightAnswerCount === rightAnswersCountToWin) {
+      console.log(`Congratulations, ${userName}!`);
     }
   }
 }

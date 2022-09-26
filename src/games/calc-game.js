@@ -1,4 +1,6 @@
-import { getRandomNumber } from '../index.js';
+import getRandomNumber from '../utils.js';
+
+export const gameDescription = 'What is the result of the expression?';
 
 function getRandomOperator() {
   const operators = ['+', '-', '*'];
@@ -24,20 +26,14 @@ function calcExpressionResult(firstNum, secondNum, mathOperation) {
   return expressionResult;
 }
 
-export function getGamesRule() {
-  const rule = 'What is the result of the expression?';
-  console.log(rule);
-}
-
-export function calcGame() {
+export function saveCalcGameVariables() {
   const [firstOperand, secondOperand, operator] = [
     getRandomNumber(0, 50), getRandomNumber(0, 50), getRandomOperator(),
   ];
-  const expression = `${firstOperand} ${operator} ${secondOperand}`;
   const expressionResult = calcExpressionResult(firstOperand, secondOperand, operator);
 
   return [
-    expression,
+    `${firstOperand} ${operator} ${secondOperand}`,
     expressionResult,
   ];
 }
