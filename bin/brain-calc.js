@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import getMathResult from './games/calc-game.js';
+import { getGamesRule, calcGame } from '../src/games/calc-game.js';
 
-getMathResult();
+import runEngine from '../src/index.js';
+
+runEngine(getGamesRule, calcGame);

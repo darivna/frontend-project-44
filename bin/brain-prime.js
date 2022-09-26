@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import checkIsPrime from './games/prime-game.js';
+import { getGamesRule, primeGame } from '../src/games/prime-game.js';
 
-checkIsPrime();
+import runEngine from '../src/index.js';
+
+runEngine(getGamesRule, primeGame);

@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import findEvenNumber from './games/even-game.js';
+import { getGamesRule, evenGame } from '../src/games/even-game.js';
 
-findEvenNumber();
+import runEngine from '../src/index.js';
+
+runEngine(getGamesRule, evenGame);

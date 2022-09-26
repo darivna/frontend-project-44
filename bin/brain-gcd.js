@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import getGreatestDivisor from './games/gcd-game.js';
+import { getGamesRule, getGreatestDivisor } from '../src/games/gcd-game.js';
 
-getGreatestDivisor();
+import runEngine from '../src/index.js';
+
+runEngine(getGamesRule, getGreatestDivisor);
