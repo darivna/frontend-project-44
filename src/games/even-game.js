@@ -5,8 +5,8 @@ export function getGamesRule() {
   console.log(rule);
 } 
 
-function getUserAnswer() {
-  const userAnswer = randomNumber % 2 === 0 ? 'yes' : 'no'
+function getUserAnswer(number) {
+  const userAnswer = number % 2 === 0 ? 'yes' : 'no'
   return userAnswer;
 }
 
@@ -15,6 +15,6 @@ export function evenGame() {
 
   return [
     randomNumber,
-    getUserAnswer()
+    getUserAnswer(randomNumber)
   ]
 }
