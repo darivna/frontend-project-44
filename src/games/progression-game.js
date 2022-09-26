@@ -1,4 +1,4 @@
-import { getRandomNumber } from '../../src/index.js';
+import { getRandomNumber } from '../index.js';
 
 function getArrayOfNumbers(arrLength, step) {
   const arrayOfNumbers = [];
@@ -14,7 +14,7 @@ function getArrayOfNumbers(arrLength, step) {
 export function getGamesRule() {
   const rule = 'What number is missing in the progression?';
   console.log(rule);
-} 
+}
 
 export function progressionGame() {
   const [arrayLength, progressionStep] = [
@@ -26,6 +26,6 @@ export function progressionGame() {
 
   return [
     arrayOfNumbers.join(' '),
-    emptySlotArray
-  ]
+    emptySlotArray,
+  ];
 }

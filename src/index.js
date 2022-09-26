@@ -31,7 +31,6 @@ export default function runEngine(gameRule, game) {
   let rightAnswerCount = 0;
 
   while (rightAnswerCount < 3) {
-    
     const [question, answer] = game();
     makeQuestion(question);
     const usersAnswer = getUsersAnswer();
@@ -40,7 +39,7 @@ export default function runEngine(gameRule, game) {
       console.log('Correct!');
       rightAnswerCount += 1;
     } else {
-      console.log(`${usersAnswer} is wrong answer ;(. Correct answer was ${answer}.\nLet\'s try again, ${username}!`);
+      console.log(`${usersAnswer} is wrong answer ;(. Correct answer was ${answer}.\nLet's try again, ${username}!`);
       break;
     }
 

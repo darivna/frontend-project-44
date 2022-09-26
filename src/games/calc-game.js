@@ -6,7 +6,6 @@ function getRandomOperator() {
 }
 
 function calcExpressionResult(firstNum, secondNum, mathOperation) {
-
   let expressionResult = null;
 
   switch (mathOperation) {
@@ -28,7 +27,7 @@ function calcExpressionResult(firstNum, secondNum, mathOperation) {
 export function getGamesRule() {
   const rule = 'What is the result of the expression?';
   console.log(rule);
-} 
+}
 
 export function calcGame() {
   const [firstOperand, secondOperand, operator] = [
@@ -39,6 +38,6 @@ export function calcGame() {
 
   return [
     expression,
-    expressionResult
-  ]
+    expressionResult,
+  ];
 }

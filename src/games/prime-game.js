@@ -22,6 +22,6 @@ export function primeGame() {
 
   return [
     randomNumber,
-    isPrime(randomNumber)
-  ]
+    isPrime(randomNumber),
+  ];
 }
