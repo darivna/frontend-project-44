@@ -33,7 +33,7 @@ export default function runEngine(gameRule, game) {
   while (rightAnswerCount < 3) {
     
     const [question, answer] = game();
-    console.log(question);
+    makeQuestion(question);
     const usersAnswer = getUsersAnswer();
 
     if (usersAnswer.toString() === answer.toString()) {
