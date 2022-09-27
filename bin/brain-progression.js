@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { gameDescription, saveProgressionGameVariables } from '../src/games/progression-game.js';
+import { gameDescription, generateGameData } from '../src/games/progression.js';
 
-import runEngine from '../src/index.js';
+import runEngine from '../src/engine.js';
 
-runEngine(gameDescription, saveProgressionGameVariables);
+runEngine(gameDescription, generateGameData);

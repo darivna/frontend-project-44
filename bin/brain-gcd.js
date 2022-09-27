@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { gameDescription, saveGcdGameVariables } from '../src/games/gcd-game.js';
+import { gameDescription, generateGameData } from '../src/games/gcd.js';
 
-import runEngine from '../src/index.js';
+import runEngine from '../src/engine.js';
 
-runEngine(gameDescription, saveGcdGameVariables);
+runEngine(gameDescription, generateGameData);

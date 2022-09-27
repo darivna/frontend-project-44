@@ -1,23 +1,25 @@
 import getRandomNumber from '../utils.js';
 
 export const gameDescription = 'What number is missing in the progression?';
+const minProgressionStep = 2;
+const minArrayLength = 5;
+const maxRandomNumber = 10;
 
 function getArrayOfNumbers(arrLength, step) {
   const arrayOfNumbers = [];
-  let arraysElement = getRandomNumber(0, 50);
+  const firstElement = getRandomNumber(0, 50);
 
-  for (let i = 1; i <= arrLength; i += 1) {
-    arraysElement += step;
-    arrayOfNumbers.push(arraysElement);
+  for (let i = 0; i < arrLength; i += 1) {
+    const element = firstElement + step * i;
+    arrayOfNumbers.push(element);
   }
 
   return arrayOfNumbers;
 }
 
-export function saveProgressionGameVariables() {
-  const [arrayLength, progressionStep] = [
-    getRandomNumber(5, 10), getRandomNumber(2, 10),
-  ];
+export function generateGameData() {
+  const arrayLength = getRandomNumber(minArrayLength, maxRandomNumber);
+  const progressionStep = getRandomNumber(minProgressionStep, maxRandomNumber);
   const randomIndex = getRandomNumber(0, arrayLength);
   const arrayOfNumbers = getArrayOfNumbers(arrayLength, progressionStep);
   const arrayWithEmptySlot = arrayOfNumbers.splice(randomIndex, 1, '..');

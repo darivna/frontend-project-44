@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { gameDescription, saveEvenGameVariables } from '../src/games/even-game.js';
+import { gameDescription, generateGameData } from '../src/games/even.js';
 
-import runEngine from '../src/index.js';
+import runEngine from '../src/engine.js';
 
-runEngine(gameDescription, saveEvenGameVariables);
+runEngine(gameDescription, generateGameData);

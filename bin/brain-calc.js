@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { gameDescription, saveCalcGameVariables } from '../src/games/calc-game.js';
+import { gameDescription, generateGameData } from '../src/games/calc.js';
 
-import runEngine from '../src/index.js';
+import runEngine from '../src/engine.js';
 
-runEngine(gameDescription, saveCalcGameVariables);
+runEngine(gameDescription, generateGameData);

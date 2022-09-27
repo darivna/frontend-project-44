@@ -2,14 +2,6 @@ import readlineSync from 'readline-sync';
 
 const rightAnswersCountToWin = 3;
 
-export function showGamesRule(rule) {
-  console.log(rule);
-}
-
-export function readUsersAnswer() {
-  return readlineSync.question('Your answer: ');
-}
-
 export default function runEngine(gameDescription, generateGameData) {
   let rightAnswerCount = 0;
 
@@ -22,7 +14,7 @@ export default function runEngine(gameDescription, generateGameData) {
   while (rightAnswerCount < rightAnswersCountToWin) {
     const [question, rightAnswer] = generateGameData();
     console.log(`Question: ${question}`);
-    const usersAnswer = readUsersAnswer();
+    const usersAnswer = readlineSync.question('Your answer: ');
 
     if (usersAnswer.toString() !== rightAnswer.toString()) {
       console.log(`${usersAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.\nLet's try again, ${userName}!`);

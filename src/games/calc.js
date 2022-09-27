@@ -2,12 +2,17 @@ import getRandomNumber from '../utils.js';
 
 export const gameDescription = 'What is the result of the expression?';
 
+const minRandomNumber = 0;
+const maxRandomNumber = 50;
+
+export const supportedOperators = ['+', '-', '*'];
+
 function getRandomOperator() {
-  const operators = ['+', '-', '*'];
-  return operators[getRandomNumber(0, 3)];
+  const operators = supportedOperators;
+  return operators[getRandomNumber(0, supportedOperators.length)];
 }
 
-function calcExpressionResult(firstNum, secondNum, mathOperation) {
+function calcExpression(firstNum, secondNum, mathOperation) {
   let expressionResult = null;
 
   switch (mathOperation) {
@@ -26,14 +31,17 @@ function calcExpressionResult(firstNum, secondNum, mathOperation) {
   return expressionResult;
 }
 
-export function saveCalcGameVariables() {
-  const [firstOperand, secondOperand, operator] = [
-    getRandomNumber(0, 50), getRandomNumber(0, 50), getRandomOperator(),
-  ];
-  const expressionResult = calcExpressionResult(firstOperand, secondOperand, operator);
+export function generateGameData() {
+  const firstOperand = getRandomNumber(minRandomNumber, maxRandomNumber);
+  const secondOperand = getRandomNumber(minRandomNumber, maxRandomNumber);
+  const operator = getRandomOperator();
 
   return [
     `${firstOperand} ${operator} ${secondOperand}`,
-    expressionResult,
+    calcExpression(
+      firstOperand, 
+      secondOperand, 
+      operator
+    )
   ];
 }
