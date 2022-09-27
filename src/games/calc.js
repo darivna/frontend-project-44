@@ -39,9 +39,9 @@ export function generateGameData() {
   return [
     `${firstOperand} ${operator} ${secondOperand}`,
     calcExpression(
-      firstOperand, 
-      secondOperand, 
-      operator
-    )
+      firstOperand,
+      secondOperand,
+      operator,
+    ),
   ];
 }
