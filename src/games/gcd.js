@@ -8,9 +8,6 @@ const maxRandomNumber = 100;
 function calcGreatestCommonDiv(firstValue, secondValue) {
   const divisorsArray = [];
 
-  if (firstValue === 0) { return secondValue; }
-  if (secondValue === 0) { return firstValue; }
-
   for (let i = 1, j = 1; i <= firstValue && j <= secondValue; i += 1, j += 1) {
     if (firstValue % i === 0 && secondValue % j === 0) {
       divisorsArray.push(i, j);
