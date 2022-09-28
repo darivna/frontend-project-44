@@ -9,9 +9,6 @@ function isPrime(number) {
   let counter = 0;
 
   for (let i = 1; i <= number / 2; i += 1) {
-    if (number <= 1) {
-      break;
-    }
     if (number % i === 0) {
       counter += 1;
     }
