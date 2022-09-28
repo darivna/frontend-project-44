@@ -8,11 +8,10 @@ const maxRandomNumber = 100;
 function isPrime(number) {
   let counter = 0;
 
-  if (number === 0 || number === 1) {
-    console.log('The number is neither prime nor composite');
-  }
-
   for (let i = 1; i <= number / 2; i += 1) {
+    if (number <= 1) {
+      break;
+    }
     if (number % i === 0) {
       counter += 1;
     }
