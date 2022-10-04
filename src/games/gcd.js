@@ -2,7 +2,7 @@ import getRandomNumber from '../utils.js';
 
 export const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-const minRandomNumber = 0;
+const minRandomNumber = 1;
 const maxRandomNumber = 100;
 
 function calcGreatestCommonDiv(firstValue, secondValue) {

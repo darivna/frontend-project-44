@@ -2,7 +2,7 @@ import getRandomNumber from '../utils.js';
 
 export const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const minRandomNumber = 0;
+const minRandomNumber = 2;
 const maxRandomNumber = 100;
 
 function isPrime(number) {
